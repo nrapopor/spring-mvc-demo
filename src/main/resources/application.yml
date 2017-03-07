@@ -1,0 +1,40 @@
+spring:
+  profiles.active: default
+  application:
+    name: spring-mvc-demo
+---
+ 
+mybatis:
+    type-aliases-package: com.nrapoport.mybatis.domain
+    configuration:
+        map-underscore-to-camel-case: true
+        default-fetch-size: 100
+        default-statement-timeout: 30
+        
+spring:
+  profiles: default
+  jmx:
+    default-domain: agentservice
+    
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver 
+    url: jdbc:mysql://192.168.56.101:3306/employees?useSSL=false
+    username: dev 
+    password: dev
+    name: default
+    type: org.apache.tomcat.jdbc.pool.DataSource
+
+endpoints: 
+  jmx:
+    domain: agentservice
+    unique-names: true
+    
+management:
+  security:
+    enabled: false
+    
+logging:
+  level:
+    ROOT: INFO
+    com.nrapoport.spring.mvc.app.Application: DEBUG
+          
